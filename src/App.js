@@ -1,10 +1,20 @@
 import './App.css';
-import ImageGallery from './image_gallery/ImageGallery';
+import GoogleSignIn from './components/GoogleSignIn';
+import ImageGallery from './components/ImageGallery';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <ImageGallery />
+      <Router>
+        <Routes>
+          <Route path="/" element={<ImageGallery />}></Route>
+          <Route path="/googleSignIn" element={<GoogleSignIn />}></Route>
+
+        </Routes>
+
+
+      </Router>
     </div>
   );
 }
