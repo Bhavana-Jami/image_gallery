@@ -2,13 +2,38 @@ import React from "react"
 import { useState } from "react"
 import '../styles/Profile.css'
 const sampleImages = [
-  { id: "1", url: "/majestic-mountain-vista.png", caption: "Reach new heights" },
-  { id: "2", url: "/luxury-car-sleek-design.png", caption: "Dream car goals" },
-  { id: "3", url: "/peaceful-beach.jpg", caption: "Find your peace" },
-  { id: "4", url: "/modern-house.png", caption: "Home sweet home" },
-  { id: "5", url: "/success-celebration.png", caption: "Celebrate wins" },
-  { id: "6", url: "/diverse-fitness-workout.png", caption: "Stay strong" },
-]
+  {
+    id: "1",
+    url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+    caption: "Reach new heights"
+  },
+  {
+    id: "2",
+    url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+    caption: "Dream car goals"
+  },
+  {
+    id: "3",
+    url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    caption: "Find your peace"
+  },
+  {
+    id: "4",
+    url: "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+    caption: "Home sweet home"
+  },
+  {
+    id: "5",
+    url: "https://images.unsplash.com/photo-1515165562835-c4c3b1b1b0d5",
+    caption: "Celebrate wins"
+  },
+  {
+    id: "6",
+    url: "https://images.unsplash.com/photo-1571019613576-2b22c76fd955",
+    caption: "Stay strong"
+  },
+];
+
 
 const motivationalQuotes = [
   "The future belongs to those who believe in the beauty of their dreams.",
@@ -24,7 +49,7 @@ export default function Profile() {
   const [showQuoteModal, setShowQuoteModal] = useState(false)
 
   const addImageToBoard = (image) => {
-    const newItem= {
+    const newItem = {
       id: `item-${Date.now()}`,
       type: "image",
       content: image.url,
