@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/ImageGallery.css";
 import { imageList } from "../components/imageList"
-import image1 from "../assets/image1.jpg";
 import { Link } from "react-router-dom";
 const ImageGallery = () => {
   const imageRef = useRef(null);
