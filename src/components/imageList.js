@@ -10,24 +10,6 @@ import image15 from "../assets/image15.jpg";
 import image7 from "../assets/image7.jpg";
 import image8 from "../assets/image8.jpg";
 
-const imageTitles = [
-    "Reach new heights",
-    "Dream car goals",
-    "Find your peace",
-    "Home sweet home",
-    "Celebrate wins",
-    "Stay strong",
-    "Adventure awaits",
-    "Be yourself",
-    "Inspire others",
-    "Never give up",
-    "Live fully",
-    "Chase dreams",
-    "Be brave",
-    "Create magic",
-    "Love yourself",
-];
-
 export const imageList = [
     { url: image1, title: "Reach new heights" },
     { url: image2, title: "Dream car goals" },
