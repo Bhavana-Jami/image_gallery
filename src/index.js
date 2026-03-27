@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import { register } from './serviceWorkerRegistration';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <App />
@@ -13,15 +14,28 @@ root.render(
 );
 
 // Register the service worker
-serviceWorkerRegistration.register({
+register({
   onUpdate: (registration) => {
-    // Optional: Show notification when new version is available
-    const answer = window.confirm(
-      'New version available! Reload to update?'
-    );
-    if (answer) {
-      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-      window.location.reload();
+    console.log('New version available');
+
+    if (registration && registration.waiting) {
+      const shouldReload = window.confirm(
+        'New version available! Reload to update?'
+      );
+
+      if (shouldReload) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+
+        // Ensure reload happens after SW activates
+        registration.waiting.addEventListener('statechange', (event) => {
+          if (event.target.state === 'activated') {
+            window.location.reload();
+          }
+        });
+      }
     }
+  },
+  onSuccess: () => {
+    console.log('App is cached for offline use');
   }
 });
